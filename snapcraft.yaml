@@ -1,9 +1,10 @@
 name: ammp-grafana
 version: 6.2.2
-summary: Grafana-based dashboarding front-end for AMMP
+summary: Grafana-based dashboarding front-end for AMMP edge devices
 base: core18
 description: |
-  The AMMP dashboarding front-end, based on Grafana
+  The AMMP dashboarding front-end, based on Grafana.
+  NOTE: This snap is intended for a specific use case, and will not function similar to a stock version of Grafana.
 
 grade: stable
 confinement: strict
@@ -18,6 +19,9 @@ parts:
     source: bin
     organize:
       grafana.wrapper: bin/grafana.wrapper
+  provisioning:
+    plugin: dump
+    source: provisioning
   grafana:
     plugin: go
     source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
