@@ -22,6 +22,10 @@ parts:
   provisioning:
     plugin: dump
     source: provisioning
+    organize:
+      datasources: provisioning/datasources
+      dashboards: provisioning/dashboards
+      dashboard_definitions: provisioning/dashboard_definitions
   grafana:
     plugin: go
     source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
