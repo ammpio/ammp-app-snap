@@ -1,8 +1,3 @@
-# snap recipe for grafana
+### AMMP Grafana Snap
 
-## Building and Installing
-
-1. get the recipe `git clone https://github.com/CanonicalBootStack/snap-grafana`
-2. `cd snap-grafana`
-3. `snapcraft cleanbuild`
-4. `sudo snap install grafana_4.6.3*.snap --dangerous`
+[![Snap Status](https://build.snapcraft.io/badge/ammpio/ammp-grafana-snap.svg)](https://build.snapcraft.io/user/ammpio/ammp-grafana-snap)

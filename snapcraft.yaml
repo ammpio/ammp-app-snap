@@ -1,18 +1,16 @@
-name: grafana-ijohnson
-version: 6.1.2
-summary: feature rich metrics dashboard and graph editor
+name: ammp-grafana
+version: 6.2.2
+summary: Grafana-based dashboarding front-end for AMMP
 base: core18
 description: |
-  Grafana is a feature rich metrics dashboard and graph editor for Cloudwatch,
-  Elasticsearch, Graphite, InfluxDB, OpenTSB, Prometheus, and Hosted Metrics.
-confinement: strict
-grade: stable
+  The AMMP dashboarding front-end, based on Grafana
 
-apps:
-  grafana:
-    command: 'bin/grafana.wrapper'
-    plugs: [network-bind, network]
-    daemon: simple
+grade: stable
+confinement: strict
+
+architectures:
+  - build-on: amd64
+  - build-on: armhf
 
 parts:
   snap-wrappers:
@@ -22,11 +20,13 @@ parts:
       grafana.wrapper: bin/grafana.wrapper
   grafana:
     plugin: go
-    source: https://github.com/grafana/grafana.git
-    source-tag: v6.1.2
+    source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
+    source-branch: ammp_v6.2.2
     source-depth: 1
     go-importpath: github.com/grafana/grafana
-    build-packages: [build-essential, g++]
+    build-packages:
+      - build-essential
+      - g++
     stage-packages:
       - libfontconfig1
       - libfreetype6
@@ -38,12 +38,14 @@ parts:
         cp -p $SNAPCRAFT_PART_INSTALL/../go/bin/grafana-server $SNAPCRAFT_PART_INSTALL/bin/
         cp -p $SNAPCRAFT_PART_INSTALL/../src/conf/defaults.ini $SNAPCRAFT_PART_INSTALL/conf/
   grafana-ui:
-    after: [grafana]
+    after: 
+      - grafana
     plugin: nil
     source-type: git
-    source: https://github.com/grafana/grafana.git
-    source-tag: v6.1.2
-    build-packages: [npm]
+    source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
+    source-branch: ammp_v6.2.2
+    build-packages: 
+      - npm
     override-build: |
       npm install --global yarn
       # on arm, s390x, and ppc systems remove phantomjs as required from the 
@@ -57,3 +59,11 @@ parts:
       yarn install --pure-lockfile
       node_modules/.bin/grunt build --force
       cp -rf public $SNAPCRAFT_PART_INSTALL/public
+
+apps:
+  grafana:
+    command: 'bin/grafana.wrapper'
+    plugs: 
+      - network
+      - network-bind
+    daemon: simple
