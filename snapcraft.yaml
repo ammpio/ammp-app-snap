@@ -14,7 +14,7 @@ architectures:
 #  - build-on: armhf
 
 parts:
-  snap-wrappers:
+  wrapper-scripts:
     plugin: dump
     source: bin
     organize:
@@ -71,5 +71,6 @@ apps:
 
 plugs:
   ammp-provisioning:
+    interface: content
     content: grafana-provisioning
     target: $SNAP/provisioning
