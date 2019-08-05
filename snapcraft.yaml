@@ -70,7 +70,7 @@ apps:
     daemon: simple
 
 plugs:
-  ammp-provisioning:
+  provisioning-grafana:
     interface: content
-    content: grafana-provisioning
+    content: ammp-grafana-provisioning
     target: $SNAP/provisioning
