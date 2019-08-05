@@ -19,13 +19,6 @@ parts:
     source: bin
     organize:
       grafana.wrapper: bin/grafana.wrapper
-  provisioning:
-    plugin: dump
-    source: provisioning
-    organize:
-      datasources: provisioning/datasources
-      dashboards: provisioning/dashboards
-      dashboard_definitions: provisioning/dashboard_definitions
   grafana:
     plugin: go
     source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
@@ -75,3 +68,8 @@ apps:
       - network
       - network-bind
     daemon: simple
+
+plugs:
+  ammp-provisioning:
+    content: grafana-provisioning
+    target: $SNAP/provisioning

@@ -9,12 +9,13 @@ export GF_SERVER_HTTP_PORT=80
 export GF_SERVER_ENABLE_GZIP=true
 export GF_ANALYTICS_REPORTING_ENABLED=false
 export GF_ANALYTICS_CHECK_FOR_UPDATES=false
-export GF_SECURITY_ADMIN_PASSWORD=US7rhHww7F24qP7a
 export GF_SECURITY_DISABLE_GRAVATAR=true
 export GF_SNAPSHOTS_EXTERNAL_ENABLED=false
-export GF_AUTH_ANONYMOUS_ENABLED=true
 export GF_LOG_MODE=console
 export GF_ALERTING_ENABLED=false
 export GF_EXPLORE_ENABLED=false
+
+export EXTRA_CONFIG_FILE=$SNAP/provisioning/env_config.sh
+test -f $EXTRA_CONFIG_FILE && source $EXTRA_CONFIG_FILE
 
 exec "$SNAP/bin/grafana-server" -homepath $SNAP "$@"
