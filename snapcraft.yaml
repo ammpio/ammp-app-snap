@@ -18,7 +18,7 @@ parts:
     plugin: dump
     source: bin
     organize:
-      grafana.wrapper: bin/grafana.wrapper
+      start-grafana.sh: bin/start-grafana.sh
   grafana:
     plugin: go
     source: https://snapcraft-ci:mRiJChsdg5NPwrvvgea9@gitlab.com/ammp.io/app/grafana.git
@@ -63,7 +63,7 @@ parts:
 
 apps:
   grafana:
-    command: 'bin/grafana.wrapper'
+    command: 'bin/start-grafana.sh'
     plugs: 
       - network
       - network-bind

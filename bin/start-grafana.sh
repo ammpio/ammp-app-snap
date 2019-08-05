@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Grafana configuration
 export GF_PATHS_DATA=$SNAP_DATA
