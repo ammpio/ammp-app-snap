@@ -2,7 +2,7 @@
 
 # Grafana configuration
 export GF_PATHS_DATA=$SNAP_DATA
-export GF_PATHS_PLUGINS=$SNAP_DATA/plugins
+export GF_PATHS_PLUGINS=$SNAP/plugins
 export GF_PATHS_PROVISIONING=$SNAP/provisioning
 
 export GF_SERVER_HTTP_PORT=80

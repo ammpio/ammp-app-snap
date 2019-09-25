@@ -60,6 +60,13 @@ parts:
       yarn install --pure-lockfile
       node_modules/.bin/grunt build --force
       cp -rf public $SNAPCRAFT_PART_INSTALL/public
+  grafana-status-panel:
+    plugin: dump
+    source: https://github.com/ammpio/Grafana_Status_panel.git
+    organize:
+      .: plugins/vonage-status-panel
+    # prime:
+    #   - plugins/vonage-status-panel
 
 apps:
   grafana:
