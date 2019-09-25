@@ -64,7 +64,7 @@ parts:
     plugin: dump
     source: https://github.com/ammpio/Grafana_Status_panel.git
     organize:
-      .: plugins/vonage-status-panel
+      dist: plugins/vonage-status-panel/dist
     # prime:
     #   - plugins/vonage-status-panel
 
