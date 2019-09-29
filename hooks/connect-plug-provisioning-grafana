@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+snapctl stop $SNAP_NAME
+
+if test -f $SNAP/provisioning/grafana.db; then
+  cp -b $SNAP/provisioning/grafana.db $SNAP_DATA/
+fi
+
+snapctl start $SNAP_NAME
