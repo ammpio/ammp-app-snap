@@ -65,8 +65,13 @@ parts:
     source: https://github.com/ammpio/Grafana_Status_panel.git
     organize:
       dist: plugins/vonage-status-panel/dist
-    # prime:
-    #   - plugins/vonage-status-panel
+  natel-discrete-panel:
+    plugin: dump
+    source: https://github.com/NatelEnergy/grafana-discrete-panel.git
+    source-tag: v0.0.9
+    organize:
+      dist: plugins/natel-discrete-panel/dist
+
 
 apps:
   grafana:
