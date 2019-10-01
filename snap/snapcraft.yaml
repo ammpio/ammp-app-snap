@@ -60,19 +60,19 @@ parts:
       yarn install --pure-lockfile
       node_modules/.bin/grunt build --force
       cp -rf public $SNAPCRAFT_PART_INSTALL/public
-  grafana-status-panel:
+  vonage-status-panel:
     plugin: dump
     source: https://github.com/ammpio/Grafana_Status_panel.git
-    override-stage: |
-      mv $SNAPCRAFT_PART_BUILD/dist $SNAPCRAFT_STAGE/vonage-status-panel-dist
+    override-build: |
+      cp -r $SNAPCRAFT_PART_BUILD/dist $SNAPCRAFT_PART_INSTALL/vonage-status-panel-dist
     organize:
       vonage-status-panel-dist: plugins/vonage-status-panel/dist
   natel-discrete-panel:
     plugin: dump
     source: https://github.com/NatelEnergy/grafana-discrete-panel.git
     source-tag: v0.0.9
-    override-stage: |
-      mv $SNAPCRAFT_PART_BUILD/dist $SNAPCRAFT_STAGE/natel-discrete-panel-dist
+    override-build: |
+      cp -r $SNAPCRAFT_PART_BUILD/dist $SNAPCRAFT_PART_INSTALL/natel-discrete-panel-dist
     organize:
       natel-discrete-panel-dist: plugins/natel-discrete-panel/dist
 
